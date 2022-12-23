@@ -1,0 +1,54 @@
+.presentacion-lista {
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    margin: 18px;
+}
+
+.presentacion-lista a {
+    text-decoration: none;
+    color: white;
+}
+
+.movie-card-favorite{
+    color: black;
+    font-size: 20px;
+    background-color: white;
+    border: none;
+    margin: 5px;
+    position: absolute;
+    z-index: 1;
+    right: 6px;
+    bottom: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 35px;
+    width: 35px;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+.movie-card-favorite:hover{
+    color: rgb(0, 0, 0);
+    height: 42px;
+    width: 42px;
+    right: 1px;
+    bottom: 8px;
+    font-size: 25px;
+}
+
+.imagen-peli {
+    width: 100%;
+    height: 325px;
+    margin-bottom: 9px;
+    border-radius: 5px;
+    object-fit: cover;
+    box-shadow: 10px 7px 15px #00000091
+}
+
+.contenedor-imagen{
+    position: relative;
+}

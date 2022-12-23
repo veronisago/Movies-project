@@ -1,0 +1,19 @@
+.image-carousel-gradient {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgb(2,11,28);
+    background: linear-gradient(180deg, rgba(2,11,28,0.8491771708683473) 0%, rgba(0,0,0,0.6446953781512605) 8%, rgba(44,68,103,0) 100%);
+}
+
+.carousel-container{
+    position: relative;
+    box-shadow: 0px 18px 20px #00000045
+}
+
+.title-home{
+    color: white;
+    padding-left: 40px;
+    margin-top: 50px;
+}

@@ -1,0 +1,78 @@
+* {
+    width: 100%;
+    box-sizing: border-box;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+
+.navbar {
+    height: 70px;
+    width: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    box-sizing: border-box;
+    position: fixed;
+    z-index: 10;
+}
+
+.navbar nav {
+    height: 100%;
+}
+
+.navbar>* {
+    width: 20%;
+}
+
+.list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.list-item {
+    margin: 0;
+    display: flex;
+    height: 100%;
+    width: auto;
+    align-items: center;
+}
+
+.list-item a {
+    color: white;
+    height: 100%;
+    padding-inline: 20px;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.list-item a:hover,
+.list-item a.active {
+    background-color: #ffffff2e;
+    ;
+    color: white;
+}
+
+.navBar-logo {
+    width: 55px;
+    filter: invert(100%);
+    object-fit: contain;
+}
+
+.logo-container {
+    display: flex;
+}
+
+.logo-container h1 {
+    color: white;
+    margin-left: -1px;
+}
