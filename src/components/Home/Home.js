@@ -47,7 +47,6 @@ export class Home extends Component {
             {this.props.movies.map((peli, key) =>
               <Lista
                 peli={peli}
-                addMovieFavorite={this.props.addMovieFavorite}
                 key={key}
               />
             )}
@@ -66,14 +65,9 @@ const mapStateToProps = (state) => {
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    addMovieFavorite: movie => dispatch(addMovieFavorite(movie))
-  }
-}
 
 // Se llama a la función de connect para que este componente conozca el resto de la arquitectura de redux.
 // Sin esto, este componente es sólo un componente tonto de React.
 //Pasamos todas las funciones que dependen de Redux, junto con el propio componente,
 // para que Redux se dé a conocer a este componente.
-export default connect(mapStateToProps, mapDispatchToProps)(Home);
+export default connect(mapStateToProps)(Home);

@@ -1,22 +1,18 @@
 import React, { Component } from "react";
 import './Lista.css';
-import { Link } from 'react-router-dom';
-import { MdFavoriteBorder } from 'react-icons/md'
+import Movie from "../components/Movie/Movie";
+import { Modal, Box } from "@mui/material";
+
 
 
 export class Lista extends Component {
 
     constructor(props) {
         super(props);
-        this.state = { favoriteProperties: {} }
+        this.state = { open: false }
     }
 
     render() {
-
-        const handleClick = () => {
-            this.props.addMovieFavorite({ title: Title, id: imdbID })
-            this.setState({ favoriteProperties: { backgroundColor: "red", color: "white" } })
-        }
 
         const {
             Title,
@@ -24,15 +20,44 @@ export class Lista extends Component {
             imdbID,
         } = this.props.peli;
 
+       
+
+        const style = {
+            position: 'absolute',
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+            width: '450px',
+            bgcolor: 'background.paper',
+            boxShadow: 24,
+            borderRadius: 5,
+            overflow: 'hidden',
+        };
+
+        const handleOpen = () => {
+            this.setState({ open: true })
+            console.log('open');
+        };
+        const handleClose = () => this.setState({ open: false });
+
+
         return (
             <div className="presentacion-lista">
                 <div className="contenedor-imagen">
                     <img className="imagen-peli" src={Poster} alt="" />
-                    <button className="movie-card-favorite" style={this.state.favoriteProperties} onClick={handleClick}><MdFavoriteBorder /></button>
                 </div>
-                <Link to={`/movie/${imdbID}`}>
-                    {Title}
-                </Link>
+                <button onClick={handleOpen} className='button-title'>{Title}</button>
+                <Modal
+                    open={this.state.open}
+                    onClose={handleClose}
+                    aria-labelledby="modal-modal-title"
+                    aria-describedby="modal-modal-description"
+                >
+                    <Box sx={style}>
+                        <Movie handleClose={handleClose} id={imdbID} />
+                    </Box>
+
+                </Modal>
             </div>
         );
     }

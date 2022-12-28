@@ -1,24 +1,39 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from 'react-redux';
-import { getMovieDetail } from '../../actions/index';
+import { addMovieFavorite, getMovieDetail } from '../../actions/index';
+import { MdFavoriteBorder } from 'react-icons/md'
 import './Movie.css';
 
 //IMPLEMENTACION DE LOS HOOKS EN COMPONENTES FUNCIONALES
-const Movie =(props)=>{
-    const movieId = this.props.match.params.id;
-    const dispatch= useDispatch();
-    const movieDetail= useSelector((state)=> state.movieDetail);
+const Movie = (props) => {
+    const movieId = props.id;
+    const dispatch = useDispatch();
+    const movieDetail = useSelector((state) => state.movieDetail);
+    const [favoriteProperties, SetfavoriteProperties] = useState({})
 
-    useEffect(()=>{
+    useEffect(() => {
         dispatch(getMovieDetail(movieId));
     }, [dispatch, movieId])
 
+    const handleClick = () => {
+        dispatch(addMovieFavorite({ title: movieDetail.Title, id: movieId })) 
+        SetfavoriteProperties({ backgroundColor: "red", color: "white" })
+    }
+
     return (
         <div className="movie-detail" >
-            <h2>{movieDetail.Title}</h2>
-            <h3>{movieDetail.Year}</h3>
-            <h3>{movieDetail.Plot}</h3>
-            <h3>{movieDetail.Awards}</h3>
+            <div className="movie-img">
+                <img src={movieDetail.Poster} alt="Poster" />
+            </div>
+            <div className="movie-info">
+                <div className="movie-header-container">
+                    <h1>{movieDetail.Title}</h1>
+                    <button className="movie-card-favorite" style={favoriteProperties} onClick={handleClick}><MdFavoriteBorder /></button>
+                </div>
+                <p>Year: {movieDetail.Year}</p>
+                <p>Plot: {movieDetail.Plot}</p>
+                <p>Awards: {movieDetail.Awards}</p>
+            </div>
         </div>
     );
 }

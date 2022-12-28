@@ -18,9 +18,10 @@
 }
 
 .contenedor-lista {
-    display: flex;
-    flex-wrap: wrap;
-    padding-left: 22px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    padding-inline: 60px;
 }
 
 .letras-blancas {
@@ -44,6 +45,22 @@
 
 .nav-input::placeholder{
     color: rgba(255, 255, 255, 0.604);
+}
+
+/*====================== MEDIA QUERIES (MEDIUM DEVICES) ================== */
+@media screen and (max-width: 1024px) {
+    .contenedor-lista {
+        grid-template-columns: 1fr 1fr;
+        gap: 1.2rem;
+    }
+}
+
+/*====================== MEDIA QUERIES (SMALL DEVICES) ================== */
+@media screen and (max-width: 600px) {
+    .contenedor-lista {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
 }
 
 

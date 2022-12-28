@@ -1,5 +1,5 @@
 .presentacion-lista {
-    width: 200px;
+    width: 70%;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -18,26 +18,21 @@
     background-color: white;
     border: none;
     margin: 5px;
-    position: absolute;
-    z-index: 1;
-    right: 6px;
-    bottom: 12px;
     display: flex;
+    right: 255px;
+    bottom: 185px;
     justify-content: center;
     align-items: center;
-    height: 35px;
-    width: 35px;
+    height: 30px;
+    width: 31px;
     border-radius: 50px;
     cursor: pointer;
 }
 
 .movie-card-favorite:hover{
     color: rgb(0, 0, 0);
-    height: 42px;
-    width: 42px;
-    right: 1px;
-    bottom: 8px;
-    font-size: 25px;
+    transform: scale(1.2);
+    transition: all .3s ease-in-out;
 }
 
 .imagen-peli {
@@ -49,6 +44,23 @@
     box-shadow: 10px 7px 15px #00000091
 }
 
+
 .contenedor-imagen{
     position: relative;
+}
+
+
+
+.button-title {
+    background: none;
+    border: none;
+    font-weight: bold;
+    font-size: 18px;
+    color: white;
+}
+
+.button-title:hover {
+    transform: scale(1.2);
+    transition: all .3s ease-in-out;
+    cursor: pointer;
 }
